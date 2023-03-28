@@ -1,0 +1,16 @@
+{
+  "topbar": {
+    "account": "Account",
+    "track-order": "Order Volgen",
+    "support": "Steun"
+  },
+  "middlebar": {
+    "search-placeholder": "Zoek producten",
+    "search": "Zoek"
+  },
+  "navbar": {
+    "all-categories": "Alle Categorieën"
+  },
+  "language-name-en": "Engels",
+  "language-name-nl": "Nederlands"
+}

@@ -1,0 +1,16 @@
+{
+  "topbar": {
+    "account": "Account",
+    "track-order": "Track Order",
+    "support": "Support"
+  },
+  "middlebar": {
+    "search-placeholder": "Search Product",
+    "search": "Search"
+  },
+  "navbar": {
+    "all-categories": "All Categories"
+  },
+  "language-name-en": "English",
+  "language-name-nl": "Dutch"
+}
