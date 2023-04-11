@@ -40,30 +40,32 @@ export default function Home({ mostPopularProducts, ...rest }: HomeProps) {
   useInitAppState({ ...rest, language: lang })
 
   return (
-    <Layout bgColor="gray">
-      <div className="section-style-one new-products mb-[60px]">
-        <div className="section-wrapper w-full">
-          <div className="container-x mx-auto">
-            <div className=" section-title flex justify-between items-center mb-5">
-              <div>
-                <h1 className="sm:text-xl text-xl font-600 text-qblacktext leading-none">
-                  Most Populars
-                </h1>
+    <Layout>
+      <div className="bg-[#f8f8f8] pt-10">
+        <div className="container-x mx-auto">
+          <div className="section-style-one new-products mb-[60px]">
+            <div className="section-wrapper w-full">
+              <div className=" section-title flex justify-between items-center mb-5">
+                <div>
+                  <h1 className="sm:text-xl text-xl font-600 text-qblacktext leading-none">
+                    Most Populars
+                  </h1>
+                </div>
               </div>
-            </div>
-            <div className="section-content">
-              <div className="products-section w-full">
-                <div className="grid xl:grid-cols-4 lg:grid-cols-3 sm:grid-cols-2 grid-cols-1 xl:gap-[30px] gap-5">
-                  {mostPopularProducts?.map((product) => (
-                    <ProductCard product={product} key={product.id} />
-                  ))}
+              <div className="section-content">
+                <div className="products-section w-full">
+                  <div className="grid xl:grid-cols-4 lg:grid-cols-3 sm:grid-cols-2 grid-cols-1 xl:gap-[30px] gap-5">
+                    {mostPopularProducts?.map((product) => (
+                      <ProductCard product={product} key={product.id} />
+                    ))}
+                  </div>
                 </div>
               </div>
             </div>
           </div>
+          <Services />
         </div>
       </div>
-      <Services />
     </Layout>
   )
 }

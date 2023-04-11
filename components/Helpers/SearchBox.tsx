@@ -17,7 +17,7 @@ export function SearchBox() {
       <div className="w-[1px] h-[22px] bg-qgray-border"></div>
 
       <button
-        className="w-[93px] h-full text-sm font-600 bg-amber-300 text-qh-black hover:bg-amber-400"
+        className="w-[93px] yellow-btn"
         type="button"
       >
         {t("middlebar.search")}

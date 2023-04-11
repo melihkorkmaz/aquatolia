@@ -64,16 +64,15 @@ body {
 }
 
 .yellow-btn {
-  @apply w-full text-[13px] text-qblacktext font-semibold bg-qyellow flex justify-center items-center h-full;
+  @apply text-[13px] font-semibold bg-amber-300 text-qblacktext hover:bg-amber-400 justify-center items-center h-full;
   line-height: 0;
 }
-.blue-btn {
-  @apply w-full text-[13px] text-white font-semibold bg-qh3-blue flex justify-center items-center h-full;
+.brand-btn {
+  @apply text-[13px] text-white font-semibold bg-brand hover:bg-brand-dark flex justify-center items-center h-full;
   line-height: 0;
 }
 .gray-btn {
-  @apply flex justify-center items-center text-sm font-600;
-  background: #f0f1f3;
+  @apply flex justify-center items-center text-sm font-600 bg-[#f0f1f3] hover:bg-gray-300;
 }
 
 .overflow-style-none::-webkit-scrollbar {
@@ -105,7 +104,7 @@ body {
   @apply w-full h-full focus:outline-none focus:ring-0 pl-5 text-xs font-500 placeholder:text-qgraytwo;
 }
 .black-btn {
-  @apply bg-qblack text-white;
+  @apply bg-qblack text-white hover:bg-gray-800;
 }
 .breadcrumb-wrapper span:last-child .sperator {
   display: none;

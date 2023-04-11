@@ -1,11 +1,7 @@
 import useTranslation from "next-translate/useTranslation";
-import Link from "next/link";
-import { twJoin } from "tailwind-merge";
 import { Compair } from "./Helpers/icons/Compair";
 import QuickViewIco from "./Helpers/icons/QuickViewIco";
-import Star from "./Helpers/icons/Star";
 import { ThinLove } from "./Helpers/icons/ThinLove";
-import slugify from "slugify";
 import Product from "./Product";
 import { ProductType } from "@/types/Product";
 
@@ -14,13 +10,11 @@ interface ProductCardProps {
 };
 
 export default function ProductCard({ product }: ProductCardProps) {
-  const { lang, t } = useTranslation("product");
+  const { t } = useTranslation("product");
 
   if (!product) {
     return null;
   }
-
-  console.log("product", product.mainImage?.formats?.large?.width);
 
   return (
     <Product product={product}>

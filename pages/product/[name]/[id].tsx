@@ -3,6 +3,7 @@ import useInitAppState from "@/components/AppProvider/useInitAppState";
 import Breadcrumb from "@/components/Breadcrumb";
 import { Hearth } from "@/components/Helpers/icons/Hearth";
 import Product from "@/components/Product";
+import useCart from "@/hooks/useCart";
 import Layout from "@/pages/Layout";
 import { getCategories } from "@/services/category";
 import { getNavigation } from "@/services/navigation";
@@ -41,12 +42,13 @@ export default function ProductPage({
   product,
   ...rest
 }: ProductPageProps) {
-  const { lang } = useTranslation("product");
+  const { lang, t } = useTranslation("product");
   useInitAppState({ ...rest, language: lang });
   const [selectedImage, setSelectedImage] = useState<MediaField | undefined>(product?.mainImage);
   const [quantity, setQuantity] = useState(1);
   const reviewElement = useRef(null);
   const [tab, setTab] = useState("des");
+  const { addProductToCart } = useCart();
 
   const changeImgHandler = (image: MediaField) => {
     image && setSelectedImage(image);
@@ -72,8 +74,8 @@ export default function ProductPage({
 
   return (
     <Layout>
-      <div className="breadcrumb-wrapper w-full ">
-        <div className="container-x mx-auto">
+      <div className="container-x mx-auto mt-6">
+        <div className="breadcrumb-wrapper w-full ">
           <Breadcrumb
             paths={[
               { name: "home", path: "/" },
@@ -81,9 +83,7 @@ export default function ProductPage({
             ]}
           />
         </div>
-      </div>
-      <div className="w-full pb-[60px]">
-        <div className="container-x mx-auto">
+        <div className="w-full pb-[60px]">
           <Product product={product}>
             <div className="product-view w-full lg:flex justify-between">
               <div data-aos="fade-right" className="lg:w-1/2 xl:mr-[70px] lg:mr-[50px]">
@@ -149,8 +149,11 @@ export default function ProductPage({
                       <button
                         type="button"
                         className="black-btn text-sm font-semibold w-full h-full"
+                        onClick={() => {
+                          addProductToCart(product.id, quantity);
+                        }}
                       >
-                        Add To Cart
+                        {t("card.add-to-cart")}
                       </button>
                     </div>
                   </div>
@@ -173,105 +176,52 @@ export default function ProductPage({
         </div>
       </div>
 
-      <div
-        className="product-des-wrapper w-full relative pb-[60px]"
-        ref={reviewElement}
-      >
-        <div className="tab-buttons w-full mb-10 mt-5 sm:mt-0">
-          <div className="container-x mx-auto">
-            <ul className="flex space-x-12 ">
-              <li>
-                <span
-                  onClick={() => setTab("des")}
-                  className={`py-[15px] sm:text-[15px] text-sm sm:block border-b font-medium cursor-pointer ${tab === "des"
+      <div className="bg-[#f8f8f8]">
+        <div
+          className="product-des-wrapper w-full relative pb-[60px]"
+          ref={reviewElement}
+        >
+          <div className="tab-buttons w-full mb-10 mt-5 sm:mt-0 border-b border-[#E8E8E8]">
+            <div className="container-x mx-auto">
+              <ul className="flex space-x-12 ">
+                <li>
+                  <span
+                    onClick={() => setTab("des")}
+                    className={`py-[15px] sm:text-[15px] text-sm sm:block border-b font-medium cursor-pointer ${tab === "des"
                       ? "border-qyellow text-qblack "
                       : "border-transparent text-qgray"
-                    }`}
-                >
-                  Description
-                </span>
-              </li>
-              <li>
-                <span
-                  onClick={() => setTab("review")}
-                  className={`py-[15px] sm:text-[15px] text-sm sm:block border-b font-medium cursor-pointer ${tab === "review"
+                      }`}
+                  >
+                    Description
+                  </span>
+                </li>
+                <li>
+                  <span
+                    onClick={() => setTab("review")}
+                    className={`py-[15px] sm:text-[15px] text-sm sm:block border-b font-medium cursor-pointer ${tab === "review"
                       ? "border-qyellow text-qblack "
                       : "border-transparent text-qgray"
-                    }`}
-                >
-                  Reviews
-                </span>
-              </li>
-              <li>
-                <span
-                  onClick={() => setTab("info")}
-                  className={`py-[15px] sm:text-[15px] text-sm sm:block border-b font-medium cursor-pointer ${tab === "info"
-                      ? "border-qyellow text-qblack "
-                      : "border-transparent text-qgray"
-                    }`}
-                >
-                  Seller Info
-                </span>
-              </li>
-            </ul>
+                      }`}
+                  >
+                    Reviews
+                  </span>
+                </li>
+              </ul>
+            </div>
           </div>
-          <div className="w-full h-[1px] bg-[#E8E8E8] absolute left-0 sm:top-[50px] top-[36px] -z-10"></div>
-        </div>
-        <div className="tab-contents w-full min-h-[400px] ">
           <div className="container-x mx-auto">
-            {tab === "des" && (
-              <div data-aos="fade-up" className="w-full tab-content-item">
-                <h6 className="text-[18px] font-medium text-qblack mb-2">
-                  Introduction
-                </h6>
-                <p className="text-[15px] text-qgray text-normal mb-10">
-                  Lorem Ipsum is simply dummy text of the printing and
-                  typesetting industry. Lorem Ipsum has been the industry's
-                  standard dummy text ever since the 1500s, when an unknown
-                  printer took a galley of type and scrambled it to make a
-                  type specimen book. It has survived not only five
-                  centuries but also the on leap into electronic
-                  typesetting, remaining essentially unchanged. It wasn’t
-                  popularised in the 1960s with the release of Letraset
-                  sheets containing Lorem Ipsum passages, andei more
-                  recently with desktop publishing software like Aldus
-                  PageMaker including versions of Lorem Ipsum to make a type
-                  specimen book.
-                </p>
-                <div>
-                  <h6 className="text-[18px] text-medium mb-4">
-                    Features :
-                  </h6>
-                  <ul className="list-disc ml-[15px]">
-                    <li className="font-normal text-qgray leading-9">
-                      slim body with metal cover
-                    </li>
-                    <li className="font-normal text-qgray leading-9">
-                      latest Intel Core i5-1135G7 processor (4 cores / 8
-                      threads)
-                    </li>
-                    <li className="font-normal text-qgray leading-9">
-                      8GB DDR4 RAM and fast 512GB PCIe SSD
-                    </li>
-                    <li className="font-normal text-qgray leading-9">
-                      NVIDIA GeForce MX350 2GB GDDR5 graphics card backlit
-                      keyboard, touchpad with gesture support
-                    </li>
-                  </ul>
+            <div className="tab-contents w-full">
+              {tab === "des" && (
+                <div className="w-full tab-content-item">
+                  <div dangerouslySetInnerHTML={{ __html: product.details }} />
                 </div>
-              </div>
-            )}
-            {tab === "review" && (
-              <div data-aos="fade-up" className="w-full tab-content-item">
-                <h6 className="text-[18px] font-medium text-qblack mb-2">
-                  Reviews
-                </h6>
-                {/* review-comments */}
-                <div className="w-full">
-                  Reviewss
+              )}
+              {tab === "review" && (
+                <div data-aos="fade-up" className="w-full tab-content-item">
+                  ...coming soon
                 </div>
-              </div>
-            )}
+              )}
+            </div>
           </div>
         </div>
       </div>

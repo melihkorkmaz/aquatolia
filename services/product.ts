@@ -3,8 +3,13 @@ import { fetchAll, fetchOne } from "./api";
 import qs from "qs";
 import { mapDataType, mapArrayDataType } from "@/utils/mapDataType";
 
-export const getProducts = async () => {
+export const getProducts = async (ids?: number[]) => {
   const query = qs.stringify({
+    filters: {
+      id: {
+        $in: ids
+      }
+    },
     populate: {
       mainImage: {
         fields: ["url", "width", "height", "formats"]
@@ -13,7 +18,7 @@ export const getProducts = async () => {
   }, {
     encodeValuesOnly: true,
   });
-  
+ 
   const response = await fetchAll("products", query).then(mapArrayDataType<ProductType>);
 
   return response;

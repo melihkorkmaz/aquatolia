@@ -7,7 +7,11 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        brand: "#35acc6",
+        brand: {
+          light: "#7fd5eb",
+          DEFAULT: "#35acc6",
+          dark: "#237a8e",
+        },
         primarygray: "#f8f8f8",
         qblack: "#222222",
         qyellow: "#FFBB38",

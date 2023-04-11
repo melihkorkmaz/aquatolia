@@ -569,10 +569,6 @@ video {
   top: 10rem;
 }
 
-.top-\[36px\] {
-  top: 36px;
-}
-
 .top-\[53px\] {
   top: 53px;
 }
@@ -684,14 +680,6 @@ video {
   margin-left: 0px;
 }
 
-.ml-2 {
-  margin-left: 0.5rem;
-}
-
-.ml-\[15px\] {
-  margin-left: 15px;
-}
-
 .mr-\[15px\] {
   margin-right: 15px;
 }
@@ -702,6 +690,10 @@ video {
 
 .mt-5 {
   margin-top: 1.25rem;
+}
+
+.mt-6 {
+  margin-top: 1.5rem;
 }
 
 .mt-\[20px\] {
@@ -772,10 +764,6 @@ video {
   height: 240px;
 }
 
-.h-\[310px\] {
-  height: 310px;
-}
-
 .h-\[44px\] {
   height: 44px;
 }
@@ -810,10 +798,6 @@ video {
 
 .max-h-full {
   max-height: 100%;
-}
-
-.min-h-\[400px\] {
-  min-height: 400px;
 }
 
 .w-10 {
@@ -897,10 +881,6 @@ video {
 
 .cursor-pointer {
   cursor: pointer;
-}
-
-.list-disc {
-  list-style-type: disc;
 }
 
 .grid-cols-1 {
@@ -1048,6 +1028,11 @@ video {
   border-top-width: 3px;
 }
 
+.border-\[\#E8E8E8\] {
+  --tw-border-opacity: 1;
+  border-color: rgb(232 232 232 / var(--tw-border-opacity));
+}
+
 .border-qgray-border {
   --tw-border-opacity: 1;
   border-color: rgb(239 239 239 / var(--tw-border-opacity));
@@ -1070,11 +1055,6 @@ video {
 .border-b-qgray {
   --tw-border-opacity: 1;
   border-bottom-color: rgb(121 121 121 / var(--tw-border-opacity));
-}
-
-.bg-\[\#E8E8E8\] {
-  --tw-bg-opacity: 1;
-  background-color: rgb(232 232 232 / var(--tw-bg-opacity));
 }
 
 .bg-\[\#F0F1F3\] {
@@ -1197,6 +1177,10 @@ video {
   padding-bottom: 60px;
 }
 
+.pt-10 {
+  padding-top: 2.5rem;
+}
+
 .pt-\[20px\] {
   padding-top: 20px;
 }
@@ -1207,6 +1191,10 @@ video {
 
 .pt-\[56px\] {
   padding-top: 56px;
+}
+
+.text-center {
+  text-align: center;
 }
 
 .text-2xl {
@@ -1290,10 +1278,6 @@ video {
   line-height: 1.75rem;
 }
 
-.leading-9 {
-  line-height: 2.25rem;
-}
-
 .leading-\[24px\] {
   line-height: 24px;
 }
@@ -1336,6 +1320,11 @@ video {
 .text-black {
   --tw-text-opacity: 1;
   color: rgb(0 0 0 / var(--tw-text-opacity));
+}
+
+.text-gray-500 {
+  --tw-text-opacity: 1;
+  color: rgb(107 114 128 / var(--tw-text-opacity));
 }
 
 .text-qblack {
@@ -1486,32 +1475,45 @@ body {
 }
 
 .yellow-btn {
-  display: flex;
   height: 100%;
-  width: 100%;
   align-items: center;
   justify-content: center;
   --tw-bg-opacity: 1;
-  background-color: rgb(255 187 56 / var(--tw-bg-opacity));
+  background-color: rgb(252 211 77 / var(--tw-bg-opacity));
   font-size: 13px;
   font-weight: 600;
   --tw-text-opacity: 1;
   color: rgb(29 29 29 / var(--tw-text-opacity));
+}
+
+.yellow-btn:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(251 191 36 / var(--tw-bg-opacity));
+}
+
+.yellow-btn {
   line-height: 0;
 }
 
-.blue-btn {
+.brand-btn {
   display: flex;
   height: 100%;
-  width: 100%;
   align-items: center;
   justify-content: center;
   --tw-bg-opacity: 1;
-  background-color: rgb(24 104 213 / var(--tw-bg-opacity));
+  background-color: rgb(53 172 198 / var(--tw-bg-opacity));
   font-size: 13px;
   font-weight: 600;
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
+}
+
+.brand-btn:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(35 122 142 / var(--tw-bg-opacity));
+}
+
+.brand-btn {
   line-height: 0;
 }
 
@@ -1519,10 +1521,16 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+  --tw-bg-opacity: 1;
+  background-color: rgb(240 241 243 / var(--tw-bg-opacity));
   font-size: 0.875rem;
   line-height: 1.25rem;
   font-weight: 600;
-  background: #f0f1f3;
+}
+
+.gray-btn:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(209 213 219 / var(--tw-bg-opacity));
 }
 
 .overflow-style-none::-webkit-scrollbar {
@@ -1604,6 +1612,11 @@ body {
   background-color: rgb(34 34 34 / var(--tw-bg-opacity));
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
+}
+
+.black-btn:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(31 41 55 / var(--tw-bg-opacity));
 }
 
 .breadcrumb-wrapper span:last-child .sperator {
@@ -1901,11 +1914,6 @@ body {
   border-color: rgb(34 34 34 / var(--tw-border-opacity));
 }
 
-.hover\:bg-amber-400:hover {
-  --tw-bg-opacity: 1;
-  background-color: rgb(251 191 36 / var(--tw-bg-opacity));
-}
-
 .hover\:bg-brand:hover {
   --tw-bg-opacity: 1;
   background-color: rgb(53 172 198 / var(--tw-bg-opacity));
@@ -1954,10 +1962,6 @@ body {
 }
 
 @media (min-width: 640px) {
-  .sm\:top-\[50px\] {
-    top: 50px;
-  }
-
   .sm\:mt-0 {
     margin-top: 0px;
   }

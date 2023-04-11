@@ -2,6 +2,9 @@ import { AppProps } from 'next/app';
 import "./output.css";
 import AppProvider from '@/components/AppProvider/AppProvider';
 import { Inter } from 'next/font/google';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+
+const queryClient = new QueryClient();
 
 const inter = Inter({
   subsets: ['latin'],
@@ -17,9 +20,11 @@ const App = ({ Component, pageProps }: AppProps) => {
           font-family: ${inter.style.fontFamily};
         }
       `}</style>
-      <AppProvider>
-        <Component {...pageProps} />
-      </AppProvider>
+      <QueryClientProvider client={queryClient}>
+        <AppProvider>
+          <Component {...pageProps} />
+        </AppProvider>
+      </QueryClientProvider>
     </>
   );
 };

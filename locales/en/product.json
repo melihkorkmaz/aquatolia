@@ -1,5 +1,10 @@
 {
-  "card" : {
-    "add-to-cart": "Add to cart"
+  "card": {
+    "add-to-cart": "Add to cart",
+    "view-cart": "View Cart",
+    "checkout-now": "Checkout Now",
+    "subtotal": "Subtotal",
+    "get-return-in": "Get Return within 30 days",
+    "empty-cart": "Your cart is empty"
   }
 }
